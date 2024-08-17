@@ -1,5 +1,4 @@
-
-import scikit-learn
-import streamlit
-import LightGBM
-import pandas
+scikit-learn
+streamlit
+LightGBM
+pandas
