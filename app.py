@@ -7,8 +7,50 @@ import pickle
 with open('clf.pkl', 'rb') as file:
     loaded_model = pickle.load(file)
 
+# Inject custom CSS for font style
+st.markdown(
+    """
+    <style>
+    /* Set the font-family to Serif for the whole app */
+    body {
+        font-family: 'Georgia', serif;
+    }
+
+    /* Title and header styles */
+    .title {
+        font-size: 2em;
+        color: #FF4500;
+        text-align: center;
+    }
+    .header {
+        font-size: 1.5em;
+        color: #FFD700;
+    }
+
+    /* Make all text blue */
+    body {
+        color: blue;
+    }
+
+    /* Style select boxes to have a yellow background */
+    select {
+        background-color: yellow;
+        color: black; /* Optional: Set text color to black for better readability */
+    }
+
+    /* Style select box placeholder text */
+    .css-1wa3eu0-placeholder {
+        color: black; /* Optional: Set placeholder text color */
+    }
+    </style>
+    """,
+    unsafe_allow_html=True
+)
+
+# Example of a styled header
+st.markdown('<h1 class="title">Diabetes Prediction App</h1>', unsafe_allow_html=True)
+
 # Streamlit app
-st.title('Diabetes Prediction App')
 st.write("Designed & Developed by Dr. Shabir Ahmad")
 
 st.subheader("""
@@ -30,11 +72,11 @@ with col5:
     smoking_history = st.selectbox('Smoking History', options=['No', 'Yes'])
 col6, col7, col8 = st.columns(3)
 with col6:
-    bmi = st.slider('BMI', min_value=10.0, max_value=40.0, value=22.0)
+    bmi = st.slider('BMI', min_value=10, max_value=40, value=22)
 with col7:
     HbA1c_level = st.number_input('HbA1c Level', min_value=2.0, max_value=12.0, value=5.0)
 with col8:
-    blood_glucose_level = st.slider('Blood Glucose Level', min_value=70.0, max_value=500.0, value=100.0)
+    blood_glucose_level = st.slider('Blood Glucose Level', min_value=70, max_value=500, value=100)
 
 # Map the values
 gender = 1 if gender == 'Male' else 0

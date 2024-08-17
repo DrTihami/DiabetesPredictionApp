@@ -1,5 +1,5 @@
 
-import scikit-learn
+import scikitlearn
 import streamlit
 import LightGBM
 import pandas
